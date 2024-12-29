@@ -43,6 +43,10 @@ body {
   left: 40px;
 }
 
+/* .logo-box:hover .logo {
+  animation: moveInLeft 3s ease-out;
+} */
+
 .logo {
   /* the width will be specified automatically */
   height: 35px;
@@ -55,6 +59,7 @@ body {
   left: 50%;
   /* Percentage of the el itself */
   transform: translate(-50%, -50%);
+  text-align: center;
 }
 
 .heading-primary {
@@ -63,6 +68,7 @@ body {
 
   /* removes possible animation glitch */
   backface-visibility: hidden;
+  margin-bottom: 60px;
 }
 
 .heading-primary-main {
@@ -118,4 +124,80 @@ body {
     /* Return */
     transform: translate(0);
   }
+}
+
+@keyframes moveInBottom {
+  0% {
+    opacity: 0;
+    /* Shift it */
+    transform: translateY(30px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Pseudo classes: link for normal initial state */
+.btn:link,
+.btn:visited {
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 15px 40px;
+  /* To handle it as a block el and not an inline el */
+  display: inline-block;
+  border-radius: 100px;
+  /* How long the animation transition lasts */
+  transition: all 0.2s;
+  position: relative;
+}
+
+.btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgb(0, 0, 0, 0.1);
+}
+
+.btn:active {
+  transform: translateY(-1px);
+  box-shadow: 0 5px 10px rgb(0, 0, 0, 0.1);
+}
+
+/* This is a separate class to specify color of this particular btn */
+.btn-white {
+  background-color: #fff;
+  color: #777;
+}
+
+/* Creates a copy of the button and places it behind it. Is treated as a child el of the button */
+.btn::after {
+  /* Doesn't work without content property */
+  content: "";
+  display: inline-block;
+  height: 100%;
+  width: 100%;
+  border-radius: 100px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  /* Put it behind */
+  z-index: -1;
+  /* Transform throws an err */
+  transition-property: all;
+  transition-duration: 0.2s;
+}
+
+.btn-white::after {
+  background-color: #fff;
+}
+
+.btn:hover::after {
+  transform: scaleX(1.4) scaleY(1.6);
+  opacity: 0;
+}
+
+.btn-animated {
+  animation: moveInBottom 0.5s ease-out 0.75s;
+  /* Automatically set styles to 0 before the animation starts - so at load btn is hidden */
+  animation-fill-mode: backwards;
 }
