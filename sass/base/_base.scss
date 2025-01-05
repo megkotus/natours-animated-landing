@@ -1,0 +1,19 @@
+/* important to include pseudo el here to ensure correct inheritance */
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  /* Best practice - better for plug-ins */
+  box-sizing: inherit;
+}
+
+html {
+  // This defines what 1rem is
+  font-size: 62.5%;
+}
+
+body {
+  /* borders are not added to the total size of a box */
+  box-sizing: border-box;
+}

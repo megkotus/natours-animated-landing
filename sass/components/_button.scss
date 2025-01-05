@@ -1,0 +1,64 @@
+/* Pseudo classes: link for normal initial state */
+.btn {
+  &:link,
+  &:visited {
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 1.5rem 4rem;
+    /* To handle it as a block el and not an inline el */
+    display: inline-block;
+    border-radius: 10rem;
+    /* How long the animation transition lasts */
+    transition: all 0.1s;
+    position: relative;
+  }
+
+  &:hover {
+    transform: translateY(-0.3rem);
+    box-shadow: 0 1rem 2rem rgb($color-black, 0.1);
+
+    &::after {
+      transform: scaleX(1.4) scaleY(1.6);
+      opacity: 0;
+    }
+  }
+
+  &:active {
+    transform: translateY(-0.1rem);
+    box-shadow: 0 0.5rem 1rem rgb($color-black, 0.1);
+  }
+
+  /* This is a separate class to specify color of this particular btn */
+  &--white {
+    background-color: $color-white;
+    color: $color-grey-dark;
+
+    &::after {
+      background-color: $color-white;
+    }
+  }
+
+  /* Creates a copy of the button and places it behind it. Is treated as a child el of the button */
+  &::after {
+    /* Doesn't work without content property */
+    content: "";
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    border-radius: 10rem;
+    position: absolute;
+    top: 0;
+    left: 0;
+    /* Put it behind */
+    z-index: -1;
+    /* Transform throws an err */
+    transition-property: all;
+    transition-duration: 0.2s;
+  }
+
+  &--animated {
+    animation: moveInBottom 0.5s ease-out 0.75s;
+    /* Automatically set styles to 0 before the animation starts - so at load btn is hidden */
+    animation-fill-mode: backwards;
+  }
+}
