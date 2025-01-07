@@ -1,0 +1,37 @@
+.card {
+  // perspective should be on the parent element
+  perspective: 150rem;
+
+  position: relative;
+  // Otherwise the height of the card collapses
+  height: 50rem;
+
+  &__side {
+    background-color: orange;
+    height: 50rem;
+    transition: all 0.8s;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    // Otherwise el shrink - its out of the float grid due to abs pos
+    width: 100%;
+    // Hides the back part
+    backface-visibility: hidden;
+
+    &--front {
+      background-color: red($color: #000000);
+    }
+    &--back {
+      background-color: green($color: #000000);
+      transform: rotateY(180deg);
+    }
+  }
+
+  &:hover &__side--front {
+    transform: rotateY(180deg);
+  }
+  &:hover &__side--back {
+    transform: rotateY(0deg);
+  }
+}
