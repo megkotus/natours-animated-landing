@@ -21,7 +21,7 @@
     // Prevents image from overwriting the card properties
     overflow: hidden;
 
-    box-shadow: 0 1.5rem 4rem $color-shadow-light;
+    box-shadow: 0 1.5rem 4rem $color-shadow-light-2;
 
     &--front {
       background-color: $color-white;
@@ -46,8 +46,8 @@
       &-3 {
         background-image: linear-gradient(
           to right bottom,
-          $color-tertiary-light,
-          $color-tertiary-dark
+          $color-secondary-light,
+          $color-secondary-dark
         );
       }
     }
