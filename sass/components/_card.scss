@@ -17,7 +17,7 @@
     width: 100%;
     // Hides the back part
     backface-visibility: hidden;
-    border-radius: 3px;
+    border-radius: $border-radius-small;
     // Prevents image from overwriting the card properties
     overflow: hidden;
 

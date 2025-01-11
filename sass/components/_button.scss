@@ -1,5 +1,7 @@
 /* Pseudo classes: link for normal initial state */
 .btn {
+  // First & for a "button" el, not "a" link
+  &,
   &:link,
   &:visited {
     text-transform: uppercase;
@@ -7,10 +9,13 @@
     padding: 1.5rem 4rem;
     /* To handle it as a block el and not an inline el */
     display: inline-block;
-    border-radius: 10rem;
+    border-radius: $border-radius-big;
     /* How long the animation transition lasts */
     transition: all 0.1s;
     position: relative;
+
+    border: none;
+    cursor: pointer;
   }
 
   &:hover {
@@ -23,7 +28,9 @@
     }
   }
 
-  &:active {
+  &:active,
+  &:focus {
+    outline: none;
     transform: translateY(-0.1rem);
     box-shadow: 0 0.5rem 1rem rgba($color-black, 0.1);
   }
@@ -31,7 +38,7 @@
   /* This is a separate class to specify color of this particular btn */
   &--white {
     background-color: $color-white;
-    color: $color-grey-dark;
+    color: $color-grey-dark-1;
 
     &::after {
       background-color: $color-white;
@@ -53,7 +60,7 @@
     display: inline-block;
     height: 100%;
     width: 100%;
-    border-radius: 10rem;
+    border-radius: $border-radius-big;
     position: absolute;
     top: 0;
     left: 0;

@@ -12,17 +12,22 @@ $color-tertiary-dark: #5643fa;
 $color-grey-light-1: #f7f7f7;
 $color-grey-light-2: #eee;
 
-$color-grey-dark: #777;
+$color-grey-dark-1: #777;
+$color-grey-dark-2: #999;
+
 $color-white: #fff;
 $color-black: #000;
 
 // COLOR SHADOW
 $color-shadow-light-1: rgba($color-black, 0.1);
-
 $color-shadow-light-2: rgba($color-black, 0.15);
 
 // FONT SIZES
 $default-font-size: 1.6rem;
+
+// BORDER
+$border-radius-small: 3px;
+$border-radius-big: 10rem;
 
 // GRID
 $grid-width: 114rem;
