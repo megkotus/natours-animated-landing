@@ -153,10 +153,7 @@
 
   // BACK SIDE STYLING
   &__cta {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    @include pos-center;
     width: 90%;
     // Centers the button
     text-align: center;
