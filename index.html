@@ -78,7 +78,7 @@
             <h3 class="heading-tertiary u-margin-bottom-small">
               You're going to fall in love with nature
             </h3>
-            <p class="paragraph">
+            <p class="paragraph" id="01">
               Lorem ipsum dolor sit amet, consectetur adipisicing elit. Neque,
               quidem expedita, dignissimos repellendus cumque dolorum temporibus
               eum voluptas totam delectus dolore, maiores at eos in. Soluta
@@ -124,7 +124,7 @@
               <h3 class="heading-tertiary u-margin-bottom-small">
                 Explore the world
               </h3>
-              <p class="feature-box__text">
+              <p class="feature-box__text" id="02">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit.
                 Doloribus, nesciunt quos. Culpa qui, deserunt blanditiis
                 laudantium repudiandae, ducimus, nostrum optio animi eligendi
@@ -193,7 +193,7 @@
             <div class="card">
               <div class="card__side card__side--front">
                 <div class="card__picture card__picture--1">&nbsp;</div>
-                <h4 class="card__heading">
+                <h4 class="card__heading" id="03">
                   <span class="card__heading-span card__heading-span--1"
                     >The sea explorer</span
                   >
@@ -214,7 +214,7 @@
                     <p class="card__price-only">Only</p>
                     <p class="card__price-value">$297</p>
                   </div>
-                  <a href="#" class="btn btn--white">Book now!</a>
+                  <a href="#popup" class="btn btn--white">Book now!</a>
                 </div>
               </div>
             </div>
@@ -245,7 +245,7 @@
                     <p class="card__price-only">Only</p>
                     <p class="card__price-value">$580</p>
                   </div>
-                  <a href="#" class="btn btn--white">Book now!</a>
+                  <a href="#popup" class="btn btn--white">Book now!</a>
                 </div>
               </div>
             </div>
@@ -276,7 +276,7 @@
                     <p class="card__price-only">Only</p>
                     <p class="card__price-value">$430</p>
                   </div>
-                  <a href="#" class="btn btn--white">Book now!</a>
+                  <a href="#popup" class="btn btn--white">Book now!</a>
                 </div>
               </div>
             </div>
@@ -310,7 +310,7 @@
               <figcaption class="story__caption">Mary Smith</figcaption>
             </figure>
             <div class="story__text">
-              <h3 class="heading-tertiary u-margin-bottom-small">
+              <h3 class="heading-tertiary u-margin-bottom-small" id="04">
                 I had the best time with my family
               </h3>
               <p>
@@ -360,7 +360,7 @@
             <div class="book__form">
               <form action="#" class="form">
                 <div class="u-margin-bottom-medium">
-                  <h2 class="heading-secondary">Start booking now</h2>
+                  <h2 class="heading-secondary" id="05">Start booking now</h2>
                 </div>
                 <div class="form__group">
                   <input
@@ -460,6 +460,34 @@
         </div>
       </div>
     </footer>
+
+    <div class="popup" id="popup">
+      <div class="popup__content">
+        <div class="popup__left">
+          <img src="img/nat-8.jpg" alt="Tour photo" class="popup__img" />
+          <img src="img/nat-9.jpg" alt="Tour photo" class="popup__img" />
+        </div>
+        <div class="popup__right">
+          <a href="#section-tours" class="popup__close">&times;</a>
+          <h2 class="heading-secondary u-margin-bottom-small">
+            Start booking now
+          </h2>
+          <h3 class="heading-tertiary u-margin-bottom-small">
+            Important &ndash; Please read this before booking
+          </h3>
+          <p class="popup__text">
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolores
+            numquam veniam voluptatem dolorem, qui labore beatae itaque voluptas
+            officiis? Adipisci ut suscipit fugit illum eligendi aperiam velit
+            in, vitae. Doloremque tenetur et illo hic rem delectus explicabo
+            inventore vero dolor dicta enim, quod est quis? Fuga iure voluptatem
+            veniam reiciendis porro.
+          </p>
+          <a href="#" class="btn btn--green">Book now</a>
+        </div>
+      </div>
+    </div>
+
     <!-- 
     <section class="grid-test">
       <div class="row">
@@ -492,5 +520,24 @@
       </div>
     </section> 
     -->
+
+    <script>
+      document
+        .querySelector(".navigation")
+        .addEventListener("click", function (e) {
+          const navItem = e.target.closest(".navigation__item");
+          if (navItem) {
+            e.preventDefault();
+            document.getElementById("navi-toggle").checked = false;
+            document
+              .getElementById(navItem.querySelector("span").textContent)
+              .scrollIntoView({
+                behavior: "smooth",
+                block: "center",
+                inline: "center",
+              });
+          }
+        });
+    </script>
   </body>
 </html>
