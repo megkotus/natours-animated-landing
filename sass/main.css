@@ -1,3 +1,16 @@
+/*
+0-600px; Phone
+600-900px; Tablet portrait
+900-1200px; Tabler landscape
+[1200-1800] normal style applies
+1800+; Big desktop
+*/
+/* $breakpoint argument choices:
+-phone
+-tab-port
+-tab-land
+-big-desktop
+*/
 /* important to include pseudo el here to ensure correct inheritance */
 *,
 *::after,
@@ -10,6 +23,21 @@
 
 html {
   font-size: 62.5%;
+}
+@media (max-width: 75em) {
+  html {
+    font-size: 56.25%;
+  }
+}
+@media (max-width: 56.25em) {
+  html {
+    font-size: 50%;
+  }
+}
+@media (min-width: 112.5em) {
+  html {
+    font-size: 75%;
+  }
 }
 
 body {
