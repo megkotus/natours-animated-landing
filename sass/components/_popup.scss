@@ -25,12 +25,22 @@
     transform: translate(-50%, -50%) scale(0);
     // Last is delay
     transition: all 0.4s 0.2s;
+
+    @include respond(tab-port) {
+      display: block;
+    }
   }
 
   &__left {
     width: 33.33333%;
     display: table-cell;
+
+    @include respond(tab-port) {
+      width: 50%;
+      display: flex;
+    }
   }
+
   &__right {
     width: 66.66666%;
     display: table-cell;
