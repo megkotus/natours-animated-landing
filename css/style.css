@@ -1,0 +1,20 @@
+/* Error: Undefined mixin.
+ *    ,
+ * 20 | /   @include respond(tab-land) {
+ * 21 | |     // width < 1200 ?
+ * 22 | |     font-size: 56.25%; // 1rem = 9px
+ * 23 | \   }
+ *    '
+ *   sass/base/_base.scss 20:3  @use
+ *   sass/main.scss 4:1         root stylesheet */
+
+body::before {
+  font-family: "Source Code Pro", "SF Mono", Monaco, Inconsolata, "Fira Mono",
+      "Droid Sans Mono", monospace, monospace;
+  white-space: pre;
+  display: block;
+  padding: 1em;
+  margin-bottom: 1em;
+  border-bottom: 2px solid black;
+  content: "Error: Undefined mixin.\a    \2577 \a 20 \2502  \250c    @include respond(tab-land) {\a 21 \2502  \2502      // width < 1200 ?\a 22 \2502  \2502      font-size: 56.25%; // 1rem = 9px\a 23 \2502  \2514    }\a    \2575 \a   sass/base/_base.scss 20:3  @use\a   sass/main.scss 4:1         root stylesheet";
+}

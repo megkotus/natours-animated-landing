@@ -1,15 +1,19 @@
 {
   "name": "natours",
   "version": "1.0.0",
-  "description": "Landing page",
-  "main": "index.html",
+  "description": "Landing page for natours",
+  "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "watch:sass": "sass --watch sass/main.scss:css/style.css",
+    "compile:sass": "sass sass/main.scss css/style.css"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/megkotus/natours-animated-landing.git"
   },
   "author": "Rita",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "sass": "^1.86.2"
+  }
 }
