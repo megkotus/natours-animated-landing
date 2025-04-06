@@ -1,6 +1,6 @@
+@use "../abstracts/variables" as *;
 /* Pseudo classes: link for normal initial state */
 .btn {
-  // First & for a "button" el, not "a" link
   &,
   &:link,
   &:visited {
@@ -64,7 +64,7 @@
     position: absolute;
     top: 0;
     left: 0;
-    /* Put it behind */
+    /* Puts the button behind */
     z-index: -1;
     /* Transform throws an err */
     transition-property: all;
@@ -73,7 +73,7 @@
 
   &--animated {
     animation: moveInBottom 0.5s ease-out 0.75s;
-    /* Automatically set styles to 0 before the animation starts - so at load btn is hidden */
+    /* Automatically sets styles to 0 before the animation starts - so at load btn is hidden */
     animation-fill-mode: backwards;
   }
 }

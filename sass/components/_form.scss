@@ -1,3 +1,6 @@
+@use "../abstracts/mixins" as mixins;
+@use "../abstracts/variables" as *;
+
 .form {
   &__group:not(:last-child) {
     margin-bottom: 2rem;
@@ -5,21 +8,20 @@
 
   &__input {
     font-size: 1.5rem;
-    // Input el don't inherit font-fam automatically
+    /* Styles input font */
     font-family: inherit;
     color: inherit;
-    // Shoud be a bit more on the sides
     padding: 1.5rem 2rem;
     border-radius: 2px;
     background-color: rgba($color-white, 0.5);
     border: none;
-    // To avoid border shifting down
+    /* To avoid border shifting down*/
     border-bottom: 3px solid transparent;
     width: 90%;
     display: block;
     transition: all 0.3s;
 
-    @include respond(tab-port) {
+    @include mixins.respond(tab-port) {
       width: 100%;
     }
 
@@ -47,27 +49,26 @@
     transition: all 0.3s;
   }
 
-  // Plus selects the first sibling under the this one
   &__input:placeholder-shown + &__label {
-    // We use opacity here to apply animation
+    /* Shows animation*/
     opacity: 0;
-    // Really hides the element, not just makes it transparent
+    /* Hides the element*/
     visibility: hidden;
     transform: translateY(-4rem);
   }
 
   &__radio-group {
-    // to put them in one line - instead of floats
+    /* Puts el in line*/
     width: 49%;
     display: inline-block;
 
-    @include respond(tab-port) {
+    @include mixins.respond(tab-port) {
       width: 100%;
       margin-bottom: 2rem;
     }
   }
 
-  // Hiding the def radio button
+  /* Hides the def radio button*/
   &__radio-input {
     display: none;
   }
@@ -79,7 +80,7 @@
     padding-left: 4.5rem;
   }
 
-  // Replacing radio button
+  /* Replaces radio button*/
   &__radio-button {
     height: 3rem;
     width: 3rem;
@@ -96,7 +97,7 @@
       height: 1.3rem;
       width: 1.3rem;
       border-radius: 50%;
-      @include pos-center;
+      @include mixins.pos-center;
       background-color: $color-primary;
       opacity: 0;
       transition: opacity 0.2s;

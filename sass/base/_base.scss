@@ -1,35 +1,26 @@
-/* important to include pseudo el here to ensure correct inheritance */
+@use "../abstracts/mixins" as mixins;
+// Base styles
 *,
 *::after,
 *::before {
   margin: 0;
   padding: 0;
-  /* Best practice - better for plug-ins */
   box-sizing: inherit;
 }
 
+/* Base styles: 1rem = 10px, 9px, 8px, 12px */
 html {
-  // This defines what 1rem is for the screen
-  font-size: 62.5%; // 1rem = 10px
-
-  // Redundant with tab-port being the same
-  // @include respond(phone) {
-  //   font-size: 50%;
-  // }
-
-  @include respond(tab-land) {
-    // width < 1200 ?
-    font-size: 56.25%; // 1rem = 9px
+  font-size: 62.5%;
+  @include mixins.respond(tab-land) {
+    font-size: 56.25%;
   }
 
-  @include respond(tab-port) {
-    // width < 900 ?
-    font-size: 50%; // 1rem = 8px
+  @include mixins.respond(tab-port) {
+    font-size: 50%;
   }
 
-  @include respond(big-desktop) {
-    // width > 1800 ?
-    font-size: 75%; // 1rem = 12px
+  @include mixins.respond(big-desktop) {
+    font-size: 75%;
   }
 }
 
@@ -38,7 +29,7 @@ body {
   box-sizing: border-box;
   padding: 3rem;
 
-  @include respond(tab-port) {
+  @include mixins.respond(tab-port) {
     padding: 0;
   }
 }

@@ -1,3 +1,7 @@
+@use "../abstracts/mixins" as mixins;
+@use "../abstracts/variables" as *;
+// Navigation styles
+// ---------------------
 .navigation {
   &__checkbox {
     display: none;
@@ -16,7 +20,7 @@
     text-align: center;
     cursor: pointer;
 
-    @include respond(tab-port) {
+    @include mixins.respond(tab-port) {
       top: 3rem;
       right: 3rem;
     }
@@ -26,7 +30,7 @@
     height: 6rem;
     width: 6rem;
     border-radius: 50%;
-    // Fixed on scroll
+    /* Fixed on scroll*/
     position: fixed;
     top: 6.5rem;
     right: 6.5rem;
@@ -37,7 +41,7 @@
     z-index: 1000;
     transition: transform 0.8s cubic-bezier(0.83, 0, 0.17, 1);
 
-    @include respond(tab-port) {
+    @include mixins.respond(tab-port) {
       top: 3.5rem;
       right: 3.5rem;
     }
@@ -56,7 +60,7 @@
   }
 
   &__list {
-    @include pos-center;
+    @include mixins.pos-center;
     list-style: none;
     text-align: center;
   }
@@ -82,7 +86,7 @@
         $color-white 50%
       );
 
-      // Make bigger at start
+      /* Enlarge at start*/
       background-size: 250%;
       transition: all 0.4s;
 
@@ -93,7 +97,7 @@
     }
     &:hover,
     &:active {
-      // Shift to the left
+      /* Shift to the left*/
       background-position: 100%;
       padding: 1rem 2rem;
       color: $color-primary;
@@ -133,7 +137,6 @@
 
     &::before {
       top: -0.8rem;
-      //   transform-origin: right; - this glues the element to one side
     }
     &::after {
       top: 0.8rem;

@@ -1,3 +1,6 @@
+@use "../abstracts/mixins" as mixins;
+@use "../abstracts/variables" as *;
+
 .story {
   width: 75%;
   margin: 0 auto;
@@ -9,12 +12,12 @@
   font-size: $default-font-size;
   transform: skewX(-12deg);
 
-  @include respond(tab-port) {
+  @include mixins.respond(tab-port) {
     width: 100%;
     padding: 4rem;
     padding-left: 7rem;
   }
-  @include respond(phone) {
+  @include mixins.respond(phone) {
     transform: skewX(0);
   }
 
@@ -22,15 +25,13 @@
     width: 15rem;
     height: 15rem;
     float: left;
-    // Radius at position
+    /* Radius at position*/
     shape-outside: circle(50% at 50% 50%);
     clip-path: circle(50% at 50% 50%);
-    // Translate - Better with float then margins
-    // Have to add separately, because two separate transforms don't work - ony one will apply!
     transform: translateX(-3rem) skewX(12deg);
     position: relative;
 
-    @include respond(phone) {
+    @include mixins.respond(phone) {
       transform: translateX(-3rem) skewX(0);
       shape-outside: circle(45% at 50% 50%);
       clip-path: circle(45% at 50% 50%);
@@ -46,17 +47,15 @@
   &__text {
     transform: skewX(12deg);
 
-    @include respond(phone) {
+    @include mixins.respond(phone) {
       transform: skewX(0);
     }
   }
 
   &__caption {
-    // Container is shape
     position: absolute;
     top: 50%;
     left: 50%;
-    // Set it lower for floating up
     transform: translate(-50%, 20%);
     color: $color-white;
     text-transform: uppercase;

@@ -1,3 +1,6 @@
+@use "../abstracts/mixins" as mixins;
+@use "../abstracts/variables" as *;
+
 .popup {
   height: 100vh;
   width: 100%;
@@ -13,14 +16,14 @@
   backdrop-filter: blur(10px);
 
   &__content {
-    @include pos-center;
+    @include mixins.pos-center;
 
     width: 75%;
 
     background-color: $color-white;
     border-radius: $border-radius-small;
     box-shadow: 0 2rem 4rem rgba($color-black, 0.2);
-    // Faking a table
+    /* Faking a table */
     display: table;
     overflow: hidden;
     opacity: 0;
@@ -28,7 +31,7 @@
     // Last is delay
     transition: all 0.4s 0.2s;
 
-    @include respond(tab-port) {
+    @include mixins.respond(tab-port) {
       display: block;
     }
   }
@@ -37,7 +40,7 @@
     width: 33.33333%;
     display: table-cell;
 
-    @include respond(tab-port) {
+    @include mixins.respond(tab-port) {
       width: 50%;
       display: flex;
     }
@@ -46,7 +49,7 @@
   &__right {
     width: 66.66666%;
     display: table-cell;
-    // Only works on tables
+    /* Only works on tables*/
     vertical-align: middle;
     padding: 3rem 5rem;
   }
@@ -68,7 +71,7 @@
     hyphens: auto;
   }
 
-  // Appears when we click the target (we set the anchor in a href="#popup")
+  /* Apllies on target click*/
   &:target {
     opacity: 1;
     visibility: visible;

@@ -1,9 +1,9 @@
-.card {
-  // perspective should be on the parent element
-  perspective: 150rem;
+@use "../abstracts/mixins" as mixins;
+@use "../abstracts/variables" as *;
 
+.card {
+  perspective: 150rem;
   position: relative;
-  // Otherwise the height of the card collapses - дшлу ф здфсурщдвук ащк еру сфкв
   height: 52rem;
 
   &__side {
@@ -13,12 +13,11 @@
     position: absolute;
     top: 0;
     left: 0;
-    // Otherwise el shrink - its out of the float grid due to abs pos
     width: 100%;
-    // Hides the back part
+    /* Hides the back part*/
     backface-visibility: hidden;
     border-radius: $border-radius-small;
-    // Prevents image from overwriting the card properties
+    /* Prevents image from overwriting the card properties*/
     overflow: hidden;
 
     box-shadow: 0 1.5rem 4rem $color-shadow-light-2;
@@ -64,7 +63,7 @@
   &__picture {
     background-size: cover;
     height: 23rem;
-    // Gradient overlay
+    /* Gradient overlay*/
     background-blend-mode: screen;
     clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
 
@@ -135,7 +134,7 @@
 
   &__heading-span {
     padding: 1rem 1.5rem;
-    // Treats the lines of text as two separate elements - here it applies padding to both
+    /* Treats text lines as two separate elements*/
     box-decoration-break: clone;
     &--1 {
       background-image: linear-gradient(
@@ -164,7 +163,7 @@
     ul {
       list-style: none;
       width: 80%;
-      // Centers the list
+      /* Centers the list*/
       margin: 0 auto;
       li {
         text-align: center;
@@ -180,9 +179,9 @@
 
   // BACK SIDE STYLING
   &__cta {
-    @include pos-center;
+    @include mixins.pos-center;
     width: 90%;
-    // Centers the button
+    /* Centers the button*/
     text-align: center;
   }
 
@@ -201,7 +200,7 @@
     font-weight: 100;
   }
 
-  @include respond(tab-port) {
+  @include mixins.respond(tab-port) {
     height: auto;
     border-radius: $border-radius-small;
     background-color: $color-white;

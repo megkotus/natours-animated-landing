@@ -1,20 +1,26 @@
+@use "../abstracts/mixins" as mixins;
+@use "../abstracts/variables" as *;
+
+// Header styles
+// ---------------------
 .header {
   height: 95vh;
+  background-color: $color-primary-dark; // Fallback color
   background-image: linear-gradient(
       to right bottom,
       rgba($color-primary-light, 0.8),
       rgba($color-primary-dark, 0.8)
     ),
     url(../img/hero-small.jpg);
-  /* tries to fit the el inside of the box = no matter the vp size */
+  /* fits el inside of the box */
   background-size: cover;
   /* stay at the top of the container */
   background-position: top;
   position: relative;
 
-  clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+  clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 95vh);
 
-  // If (res > 192dpi and width > 600px) or width > 2000px
+  /* If (res > 192dpi and width > 600px) or width > 2000px*/
   @media (min-resolution: 192dpi) and (min-width: 37.5em), (min-width: 125em) {
     background-image: linear-gradient(
         to right bottom,
@@ -24,8 +30,16 @@
       url(../img/hero.jpg);
   }
 
-  @include respond(phone) {
-    clip-path: polygon(0 0, 100% 0, 100% 85vh, 0 100%);
+  @include mixins.respond(tab-land) {
+    clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 88vh);
+  }
+
+  @include mixins.respond(tab-port) {
+    clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 85vh);
+  }
+
+  @include mixins.respond(phone) {
+    clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 83vh);
   }
 
   &__logo-box {
@@ -35,12 +49,7 @@
     left: 4rem;
   }
 
-  /* .logo-box:hover .logo {
-      animation: moveInLeft 3s ease-out;
-    } */
-
   &__logo {
-    /* the width will be specified automatically */
     height: 3.5rem;
   }
 
@@ -49,7 +58,7 @@
     /* Percentage related to the parent element */
     top: 40%;
     left: 50%;
-    /* Percentage of the el itself */
+    /* Percentage of the el*/
     transform: translate(-50%, -50%);
     text-align: center;
   }
