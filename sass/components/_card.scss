@@ -1,5 +1,4 @@
-@use "../abstracts/mixins" as mixins;
-@use "../abstracts/variables" as *;
+@use "../abstracts" as *;
 
 .card {
   perspective: 150rem;
@@ -179,7 +178,7 @@
 
   // BACK SIDE STYLING
   &__cta {
-    @include mixins.pos-center;
+    @include pos-center;
     width: 90%;
     /* Centers the button*/
     text-align: center;
@@ -200,7 +199,7 @@
     font-weight: 100;
   }
 
-  @include mixins.respond(tab-port) {
+  @include respond(tab-port) {
     height: auto;
     border-radius: $border-radius-small;
     background-color: $color-white;

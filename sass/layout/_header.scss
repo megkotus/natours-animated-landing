@@ -1,5 +1,4 @@
-@use "../abstracts/mixins" as mixins;
-@use "../abstracts/variables" as *;
+@use "../abstracts" as *;
 
 // Header styles
 // ---------------------
@@ -30,15 +29,15 @@
       url(../img/hero.jpg);
   }
 
-  @include mixins.respond(tab-land) {
+  @include respond(tab-land) {
     clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 88vh);
   }
 
-  @include mixins.respond(tab-port) {
+  @include respond(tab-port) {
     clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 85vh);
   }
 
-  @include mixins.respond(phone) {
+  @include respond(phone) {
     clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 83vh);
   }
 

@@ -1,5 +1,4 @@
-@use "../abstracts/mixins" as mixins;
-@use "../abstracts/variables" as *;
+@use "../abstracts" as *;
 
 .form {
   &__group:not(:last-child) {
@@ -21,7 +20,7 @@
     display: block;
     transition: all 0.3s;
 
-    @include mixins.respond(tab-port) {
+    @include respond(tab-port) {
       width: 100%;
     }
 
@@ -62,7 +61,7 @@
     width: 49%;
     display: inline-block;
 
-    @include mixins.respond(tab-port) {
+    @include respond(tab-port) {
       width: 100%;
       margin-bottom: 2rem;
     }
@@ -97,7 +96,7 @@
       height: 1.3rem;
       width: 1.3rem;
       border-radius: 50%;
-      @include mixins.pos-center;
+      @include pos-center;
       background-color: $color-primary;
       opacity: 0;
       transition: opacity 0.2s;

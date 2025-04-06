@@ -1,5 +1,4 @@
-@use "../abstracts/mixins" as mixins;
-@use "../abstracts/variables" as *;
+@use "../abstracts" as *;
 
 .popup {
   height: 100vh;
@@ -16,7 +15,7 @@
   backdrop-filter: blur(10px);
 
   &__content {
-    @include mixins.pos-center;
+    @include pos-center;
 
     width: 75%;
 
@@ -31,7 +30,7 @@
     // Last is delay
     transition: all 0.4s 0.2s;
 
-    @include mixins.respond(tab-port) {
+    @include respond(tab-port) {
       display: block;
     }
   }
@@ -40,7 +39,7 @@
     width: 33.33333%;
     display: table-cell;
 
-    @include mixins.respond(tab-port) {
+    @include respond(tab-port) {
       width: 50%;
       display: flex;
     }

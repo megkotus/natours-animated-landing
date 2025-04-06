@@ -1,5 +1,5 @@
-@use "../abstracts/mixins" as mixins;
-@use "../abstracts/variables" as *;
+@use "../abstracts" as *;
+
 // Navigation styles
 // ---------------------
 .navigation {
@@ -20,7 +20,7 @@
     text-align: center;
     cursor: pointer;
 
-    @include mixins.respond(tab-port) {
+    @include respond(tab-port) {
       top: 3rem;
       right: 3rem;
     }
@@ -41,7 +41,7 @@
     z-index: 1000;
     transition: transform 0.8s cubic-bezier(0.83, 0, 0.17, 1);
 
-    @include mixins.respond(tab-port) {
+    @include respond(tab-port) {
       top: 3.5rem;
       right: 3.5rem;
     }
@@ -60,7 +60,7 @@
   }
 
   &__list {
-    @include mixins.pos-center;
+    @include pos-center;
     list-style: none;
     text-align: center;
   }
